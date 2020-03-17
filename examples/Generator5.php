@@ -6,14 +6,11 @@ function getLines(string $filePath): Generator
 {
     $file = \fopen($filePath, 'rb');
 
-    $lines = [];
     while (!\feof($file)) {
         yield \fgets($file);
     }
 
     \fclose($file);
-
-    return $lines;
 }
 
 $lines = getLines(__DIR__.'/file.txt');
